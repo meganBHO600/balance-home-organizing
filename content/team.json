@@ -1,0 +1,37 @@
+[
+  {
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1655439255555-4DVIO1A4JF0LAGXVBYR6/image8.jpg",
+    "alt": "Megan",
+    "name": "Megan",
+    "role": "Founder",
+    "local_image": "assets/img/team-megan.jpg"
+  },
+  {
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1655439154228-9RP8N779MBDWR1L00IJK/image10.jpg",
+    "alt": "Kelli",
+    "name": "Kelli",
+    "role": "Lead Organizer",
+    "local_image": "assets/img/team-kelli.jpg"
+  },
+  {
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1655439054222-8E7FB97AEC0PT8RTOG1T/image5.jpg",
+    "alt": "Shannon",
+    "name": "Shannon",
+    "role": "Organizer",
+    "local_image": "assets/img/team-shannon.jpg"
+  },
+  {
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1655439087992-ETVZVAL6PWDQ8LJ5TUWN/image3.jpg",
+    "alt": "Macy",
+    "name": "Macy",
+    "role": "Organizer",
+    "local_image": "assets/img/team-macy.jpg"
+  },
+  {
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1662753161116-V9BWPXP6VCLC4FFB2XSP/image1.jpg",
+    "alt": "McKenna",
+    "name": "McKenna",
+    "role": "Organizer",
+    "local_image": "assets/img/team-mckenna.jpg"
+  }
+]

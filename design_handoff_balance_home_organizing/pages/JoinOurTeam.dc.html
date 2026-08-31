@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/classical-66cc40fc-0762-4ef8-981c-ea6acf59c12a/styles.css">
+<script src="_ds/classical-66cc40fc-0762-4ef8-981c-ea6acf59c12a/_ds_bundle.js"></script>
+<style>
+:root{--edge:clamp(20px,5vw,72px);}
+body{margin:0;background:var(--color-bg);text-wrap:pretty;}
+a{color:var(--color-accent-700);text-decoration:none}
+a:hover{color:var(--color-accent)}
+.nav a{color:var(--color-text) !important}
+.nav a:hover{color:var(--color-accent) !important}
+img{max-width:100%;display:block;width:100%;height:100%;object-fit:cover}
+.input{font-family:var(--font-body);font-size:15px;padding:12px 14px;border:1px solid var(--color-divider);background:#fafafa;border-radius:0;width:100%;box-sizing:border-box}
+:root{
+  --color-accent:#1f6361;
+  --color-accent-600:#17504e;
+  --color-accent-700:#123f3d;
+  --color-accent-300:#bcd6d4;
+  --color-accent-100:#e6f0ef;
+  --color-sage:#9aab89;
+  --color-salmon:#e0a899;
+  --color-text:#26332f;
+  --color-bg:#ffffff;
+  --font-heading:'Work Sans', sans-serif;
+  --font-body:'Work Sans', sans-serif;
+}
+.btn.btn-primary{background:var(--color-salmon);border-color:var(--color-salmon);color:#fff !important;text-transform:uppercase;letter-spacing:0.04em;font-weight:600;white-space:nowrap;}
+.btn.btn-primary:hover{background:#d3927f;border-color:#d3927f;color:#fff !important;}
+.nav-brand{margin-right:0 !important}
+.nav .btn-primary{margin-left:auto}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap">
+</helmet>
+<nav class="nav" style="padding-inline:max(var(--space-6), calc((100% - 1200px) / 2 + var(--space-6)))">
+  <a href="./Home.dc.html" class="nav-brand" style="display:flex;align-items:center"><img src="assets/logo.png" alt="Balance Home Organizing" style="width:32px;height:32px;object-fit:contain" /></a>
+  <a href="./Home.dc.html">Home</a>
+  <a href="./Services.dc.html">Services</a>
+  <a href="./Process.dc.html">Process</a>
+  <a href="./About.dc.html">About</a>
+  <a href="./Blog.dc.html">Blog</a>
+  <a href="./Products.dc.html">Favorite Products</a>
+  <a href="./Contact.dc.html" class="btn btn-primary">Book Consultation</a>
+</nav>
+
+<div style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--edge);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,64px);align-items:start">
+
+  <figure style="margin:0;width:100%;aspect-ratio:3/4;overflow:hidden">
+    <img src="assets/hiring-flyer.jpg" alt="Balance Home is Hiring! We're looking for you." />
+  </figure>
+
+  <div>
+    <h1 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(34px,4vw,48px);line-height:1.1;margin:0 0 var(--space-5)">Our Team is Growing!</h1>
+    <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--color-text);margin:0 0 var(--space-2)">If you or someone you know loves . . . .</p>
+    <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--color-text);margin:0">* Organizing</p>
+    <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--color-text);margin:0">* Helping others</p>
+    <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--color-text);margin:0">* Making a difference</p>
+    <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--color-text);margin:0 0 var(--space-5)">* Enjoys working with a hardworking team</p>
+    <p style="font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--color-text);margin:0 0 var(--space-6)">Send us a message for more details!</p>
+
+    <form style="display:flex;flex-direction:column;gap:var(--space-5)" onsubmit="event.preventDefault()">
+      <div>
+        <label style="display:block;font-family:var(--font-body);font-size:14px;color:var(--color-text);margin-bottom:var(--space-3)">Name</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+          <div>
+            <label for="fname" style="display:block;font-family:var(--font-body);font-size:13px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin-bottom:6px">First Name <span style="font-weight:400">(required)</span></label>
+            <input class="input" id="fname" type="text" required="" />
+          </div>
+          <div>
+            <label for="lname" style="display:block;font-family:var(--font-body);font-size:13px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin-bottom:6px">Last Name <span style="font-weight:400">(required)</span></label>
+            <input class="input" id="lname" type="text" required="" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="email" style="display:block;font-family:var(--font-body);font-size:14px;color:var(--color-text);margin-bottom:6px">Email <span style="font-size:13px;font-weight:400;color:color-mix(in srgb, var(--color-text) 70%, transparent)">(required)</span></label>
+        <input class="input" id="email" type="email" required="" />
+      </div>
+      <div>
+        <label for="phone" style="display:block;font-family:var(--font-body);font-size:14px;color:var(--color-text);margin-bottom:6px">Phone</label>
+        <input class="input" id="phone" type="tel" />
+      </div>
+      <div>
+        <label for="message" style="display:block;font-family:var(--font-body);font-size:14px;color:var(--color-text);margin-bottom:6px">Message <span style="font-size:13px;font-weight:400;color:color-mix(in srgb, var(--color-text) 70%, transparent)">(required)</span></label>
+        <textarea class="input" id="message" rows="5" required="" style="resize:vertical"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="justify-self:start;padding:12px 28px">Send</button>
+    </form>
+  </div>
+
+</div>
+
+<footer style="border-top:1px solid var(--color-divider);margin-top:var(--space-6)">
+  <div style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--edge);display:flex;flex-wrap:wrap;gap:var(--space-6);justify-content:space-between;font-family:var(--font-body);font-size:14px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">
+    <div style="max-width:320px">
+      <div class="nav-brand" style="margin-bottom:var(--space-2)">Balance Home Organizing</div>
+      <p style="margin:0">Professional Organizers in San Marcos, CA<br />Serving Greater San Diego County</p>
+    </div>
+    <div>
+      <p style="margin:0">Location: San Marcos, CA<br />Phone: <a href="tel:7605719292">760.571.9292</a><br />Email: <a href="mailto:megan@balancehomeorganizing.com">megan@balancehomeorganizing.com</a></p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--space-2);font-size:14px">
+      <a href="./Home.dc.html">Home</a>
+      <a href="./Services.dc.html">Services</a>
+      <a href="./Process.dc.html">Our Process</a>
+      <a href="./Products.dc.html">Products</a>
+      <a href="./Contact.dc.html">Contact Us</a>
+      <a href="./JoinOurTeam.dc.html" aria-current="page">Join our Team</a>
+    </div>
+    <div style="display:flex;gap:var(--space-4);align-items:flex-start">
+      <a href="https://www.instagram.com/balancehomeorganizing/" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/instagram.svg" alt="Instagram" style="width:20px;height:20px" /></a>
+      <a href="https://www.yelp.com/biz/balance-home-organizing-san-marcos" target="_blank" rel="noopener" aria-label="Yelp"><img src="assets/yelp.svg" alt="Yelp" style="width:20px;height:20px" /></a>
+      <a href="https://g.page/balance-home-organizing?share" target="_blank" rel="noopener" aria-label="Google Maps"><img src="assets/google.svg" alt="Google" style="width:20px;height:20px" /></a>
+    </div>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>

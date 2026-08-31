@@ -1,0 +1,73 @@
+[
+  {
+    "href": "https://balancehomeorganizing.com/services/kitchen-organization",
+    "image": "http://static1.squarespace.com/static/61ef194b95c76364803c6431/61ef1f319b7d3b436921bc1b/61ef1f329b7d3b436921bc95/1662753608364/image13.jpg?format=1500w",
+    "alt": "Kitchen organization",
+    "title": "Kitchen",
+    "missing_source": "assets/kitchen-real.jpg",
+    "resolved_from_live_site": true,
+    "local_image": "assets/img/service-kitchen.jpg"
+  },
+  {
+    "href": "https://balancehomeorganizing.com/services/kitchen-organization",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1695231507343-H7RG5OMHO7IU2Z4NCLRA/5E00891E-2D00-47A1-AED3-A9A20279BD79_1_105_c.jpg",
+    "alt": "Pantry organization",
+    "title": "Pantry",
+    "local_image": "assets/img/service-pantry.jpg"
+  },
+  {
+    "href": "https://balancehomeorganizing.com/services/playroom-organizing",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1689883869786-P57VJ87LO2K304615S74/image-asset.jpeg",
+    "alt": "Playroom organization",
+    "title": "Playroom",
+    "local_image": "assets/img/service-playroom.jpeg"
+  },
+  {
+    "href": "https://balancehomeorganizing.com/services/closet-organization",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1695102342067-W6E8DH72VITHSZMJ8Y7U/BA82D7CB-4A83-4EE7-A8B7-46C7C7DE732B_1_105_c.jpg",
+    "alt": "Closet organization",
+    "title": "Closet",
+    "local_image": "assets/img/service-closet.jpg"
+  },
+  {
+    "href": "https://balancehomeorganizing.com/services/moving-organization",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1689824126845-7Q1NOHJ0MXF4GCUA1STQ/image-asset.jpeg",
+    "alt": "Moving organization",
+    "title": "Moving",
+    "local_image": "assets/img/service-moving.jpeg"
+  },
+  {
+    "href": "https://balancehomeorganizing.com/services/home-office-organization",
+    "image": "http://static1.squarespace.com/static/61ef194b95c76364803c6431/61ef1f319b7d3b436921bc1b/61ef1f319b7d3b436921bc3a/1644957327240/Organized+Home+Office+-+Balance+Home+Organizing.jpg?format=1500w",
+    "alt": "Home office organization",
+    "title": "Home Office",
+    "missing_source": "assets/home-office.jpg",
+    "resolved_from_live_site": true,
+    "local_image": "assets/img/service-home-office.jpg"
+  },
+  {
+    "href": "https://balancehomeorganizing.com/services/garage-organization",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1685559063353-X08VH79OFB62MGYSXVUL/Garage%2BAfter%2B-%2BSB%2B.jpg",
+    "alt": "Garage organization",
+    "title": "Garage",
+    "local_image": "assets/img/service-garage.jpg"
+  },
+  {
+    "href": "https://balancehomeorganizing.com/services/nursery-organization",
+    "image": "http://static1.squarespace.com/static/61ef194b95c76364803c6431/61ef1f319b7d3b436921bc1b/61ef1f319b7d3b436921bc4d/1644957379072/Organized+Nursery+-+Balance+Home+Organizing.jpg?format=1500w",
+    "alt": "Nursery organization",
+    "title": "Nursery",
+    "missing_source": "assets/nursery-real.jpg",
+    "resolved_from_live_site": true,
+    "local_image": "assets/img/service-nursery.jpg"
+  },
+  {
+    "href": "https://balancehomeorganizing.com/services/bedroom-bathroom-organizing",
+    "image": "http://static1.squarespace.com/static/61ef194b95c76364803c6431/61ef1f319b7d3b436921bc1b/62ac082a57653f36f518f9dc/1655443683633/image9.jpg?format=1500w",
+    "alt": "Bedroom and bathroom organization",
+    "title": "Bedroom / Bathroom",
+    "missing_source": "assets/bedroom-bathroom.jpg",
+    "resolved_from_live_site": true,
+    "local_image": "assets/img/service-bedroom-bathroom.jpg"
+  }
+]

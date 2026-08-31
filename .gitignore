@@ -1,0 +1,7 @@
+# build/verification scratch
+.refsite/
+temporary screenshots/
+
+# macOS
+.DS_Store
+**/.DS_Store

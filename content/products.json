@@ -1,0 +1,65 @@
+[
+  {
+    "href": "https://www.amazon.com/shop/balancehomeorganizing/list/1Z7R4X3WJU6AV",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1662752009969-7W183MJ8PR3CTWY2068D/314SFSL31qL.jpg",
+    "alt": "Bathroom Storage",
+    "title": "Bathroom Storage",
+    "local_image": "assets/img/product-bathroom-storage.jpg"
+  },
+  {
+    "href": "https://www.amazon.com/shop/balancehomeorganizing/list/25CK2IDP7EB6X",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1662751990209-3P0DAB5LCZAOQ594E8FP/41iT%2BKDn4KL.jpg",
+    "alt": "Dresser drawer organizers",
+    "title": "Dresser Drawer Organizers",
+    "local_image": "assets/img/product-dresser-drawer-organizers.jpg"
+  },
+  {
+    "href": "https://www.amazon.com/shop/balancehomeorganizing/list/3C20HFAQFGLW9",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1662751967642-B8FAXR3XP6CBL61198EG/512EYx8RwmL.jpg",
+    "alt": "Kitchen products",
+    "title": "Kitchen",
+    "local_image": "assets/img/product-kitchen.jpg"
+  },
+  {
+    "href": "https://www.amazon.com/dp/B07VRQJL9C?tag=onamzmeganmos-20&linkCode=ssc&creativeASIN=B07VRQJL9C&asc_item-id=amzn1.ideas.IQQMF3IN9NSO&th=1",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1662751948560-825JPOLE4VBUL97RZGWT/71fH1YLScnS._AC_SX679_.jpg",
+    "alt": "Eco Friendly Products",
+    "title": "Eco Friendly Products",
+    "local_image": "assets/img/product-eco-friendly-products.jpg"
+  },
+  {
+    "href": "https://www.amazon.com/shop/balancehomeorganizing/list/1A0LFRNRCSGX6",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1662751850227-O7NS5XE3E9V86541R1AA/41jeoo2PFCL.jpg",
+    "alt": "Storage boxes, bins and containers",
+    "title": "Storage Boxes, Bins & Containers",
+    "local_image": "assets/img/product-storage-boxes-bins-containers.jpg"
+  },
+  {
+    "href": "https://www.amazon.com/shop/balancehomeorganizing/list/3DXCLHSYHVUM2",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1662751836639-F5O3JO2E6N0Z4JX617DU/41x-dxhha7L.jpg",
+    "alt": "Office products",
+    "title": "Office",
+    "local_image": "assets/img/product-office.jpg"
+  },
+  {
+    "href": "https://www.amazon.com/shop/balancehomeorganizing/list/1B6ZJXJXAT9VE",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1662751743078-U45I16B9MN0414DBQPYO/41y6KcQbcAL.jpg",
+    "alt": "Garage products",
+    "title": "Garage",
+    "local_image": "assets/img/product-garage.jpg"
+  },
+  {
+    "href": "https://www.amazon.com/shop/balancehomeorganizing/list/3AL37T2TDOXT9",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1662751688826-S18YSYCEX6JUES2OXMPZ/41J0llOUfVL.jpg",
+    "alt": "Closet products",
+    "title": "Closet",
+    "local_image": "assets/img/product-closet.jpg"
+  },
+  {
+    "href": "https://www.amazon.com/shop/balancehomeorganizing/list/3HOIH6OUCEPYM",
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1662751728745-FUWZS05YSSEYWX8TVNDL/417Y%2BJz0jfL.jpg",
+    "alt": "Fridge and Freezer products",
+    "title": "Fridge & Freezer",
+    "local_image": "assets/img/product-fridge-freezer.jpg"
+  }
+]

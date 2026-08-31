@@ -1,0 +1,38 @@
+[
+  {
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1652767070457-RVF4QRNA86DT1MZHD4TW/unsplash-image-GliaHAJ3_5A.jpg",
+    "alt": "Choosing a space",
+    "title": "1. Choose a Space",
+    "body": "Whether you need your whole home or just a room.",
+    "cta_href": "./Services.dc.html",
+    "cta": "See Services",
+    "local_image": "assets/img/step-1-choose-a-space.jpg"
+  },
+  {
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/3e2b03ee-98af-4a3e-98d0-87d56835f92e/image20.jpg",
+    "alt": "Virtual consultation",
+    "title": "2. Schedule a Virtual Consultation",
+    "body": "Free of charge. We will discuss your needs & goals in detail.",
+    "cta_href": "./Contact.dc.html",
+    "cta": "Book Consultation",
+    "local_image": "assets/img/step-2-schedule-a-virtual-consultation.jpg"
+  },
+  {
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1652768055654-YYT264CRVMS3G5B0ZFXM/unsplash-image--uHVRvDr7pg.jpg",
+    "alt": "Making a plan",
+    "title": "3. Make a Plan",
+    "body": "We will create a game plan on next steps based on your unique needs.",
+    "cta_href": "./About.dc.html",
+    "cta": "Meet the Team",
+    "local_image": "assets/img/step-3-make-a-plan.jpg"
+  },
+  {
+    "image": "https://images.squarespace-cdn.com/content/v1/61ef194b95c76364803c6431/1652768075818-UECX59T9TQ7LMTCSNME1/unsplash-image-sY5RjMB1KkE.jpg",
+    "alt": "We organize",
+    "title": "4. We Organize",
+    "body": "Once we schedule dates & times, the team begins to organize.",
+    "cta_href": "./Services.dc.html",
+    "cta": "See Examples",
+    "local_image": "assets/img/step-4-we-organize.jpg"
+  }
+]
