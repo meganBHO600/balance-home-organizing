@@ -350,14 +350,17 @@ longer depends on the photo behind them), and raising secondary text from 70% to
 
 ## 10. Open items
 
-1. **Form submission is not wired.** Both forms validate, then open the visitor's
-   mail client with the message prefilled, and say so. To send server-side, add
-   `data-endpoint="https://…"` to the `<form>` in `build.py`; `forms.js` will POST
-   the fields as JSON. Needs spam protection either way.
-2. **Image licensing.** All 73 images came from the live site or Unsplash URLs it
-   references. Client photography is fine; confirm or replace anything Unsplash-sourced.
-3. **Hosting and DNS.** The live site is on Squarespace. Deploy target and
-   cutover plan undecided.
+1. **Image licensing.** Imagery came from the live site or Unsplash URLs it
+   references. Client photography is fine; confirm or replace anything
+   Unsplash-sourced.
+2. **Resend API key hygiene.** The key lives only as the `RESEND_API_KEY` secret
+   on the Worker. It has been rotated twice after being exposed in screenshots.
+   Never paste it into chat, tickets or screenshots — Cloudflare is the store of
+   record, and Resend only displays a key once.
+3. **Resend sending domain.** Mail currently sends from `onboarding@resend.dev`.
+   Verifying `balancehomeorganizing.com` in Resend lets it send from Megan's own
+   domain, which looks better and improves deliverability. Needs DNS records —
+   straightforward now the domain is on Cloudflare.
 4. **Per-service pages do not exist yet.** The live site has nine of them
    (`/services/kitchen-organization` and so on) and the Services tiles still link
    out to them — 9 links, the only ones left pointing at Squarespace. They need
@@ -403,6 +406,23 @@ kept unmodified. It is wrong in these places:
 - It claims each `.dc.html` "can be opened directly in a browser". It cannot; see §3.
 
 ---
+
+## Live deployment
+
+| | |
+|---|---|
+| Site | https://balancehomeorganizing.com (`www` redirects to apex) |
+| Host | Cloudflare Workers, static assets from `site/` |
+| Deploys | automatically on push to `main` |
+| Worker URL | https://balance-home-organizing.megan-bbf.workers.dev |
+| DNS | Cloudflare |
+| Email | Google Workspace — MX/SPF/DMARC untouched by any website change |
+| Forms | POST to the Worker, emailed to megan@ via Resend, Reply-To the sender |
+| Registrar | transferred from GoDaddy to Cloudflare (Aug 2026) |
+
+Cut over from Squarespace on 2026-08-31. Verified at cutover: 74 pages live,
+0 broken references, valid TLS, both forms sending, all 5 Google MX records
+resolving.
 
 ## Rollback: restoring Squarespace
 
