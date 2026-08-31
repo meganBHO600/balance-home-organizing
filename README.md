@@ -366,6 +366,16 @@ longer depends on the photo behind them), and raising secondary text from 70% to
    name with contact beneath and a right-aligned sitemap; the prototypes use four
    columns. Built the prototype's version — footer layout is redesign territory.
 
+### Requested, not yet built
+
+- **Design adjustments** — Megan reviewed and approved the site for launch, with
+  refinements to follow. No specifics captured yet.
+- **Project-timing question on the contact form** — a radio group asking when the
+  visitor wants to start (the existing "worked with an organizer before" radio is
+  the pattern to copy). Needs: the option wording from Megan, the field added in
+  `tools/build.py`, and `project_timing` added to the contact form's `fields`
+  list in `src/index.js` so it appears in the email.
+
 ### Notes on the imported blog
 
 - Squarespace **hashtag archive links** inside post bodies (`/blog/hashtags/…`)
@@ -391,3 +401,25 @@ kept unmodified. It is wrong in these places:
 - About has **no service-area list** (that lives on Contact).
 - Font, palette, and nav are wrong throughout — see §4.
 - It claims each `.dc.html` "can be opened directly in a browser". It cannot; see §3.
+
+---
+
+## Rollback: restoring Squarespace
+
+If the cutover needs reverting, set these DNS records back in Cloudflare
+(they are the Squarespace originals, captured before the switch):
+
+```
+A     @    198.185.159.144    DNS only
+A     @    198.185.159.145    DNS only
+A     @    198.49.23.144      DNS only
+A     @    198.49.23.145      DNS only
+CNAME www  ext-cust.squarespace.com   DNS only
+```
+
+Remove the Worker's custom domain first, then re-add these. Propagation is
+about 10 minutes. This only works while the Squarespace subscription is still
+within its paid period.
+
+**Do not touch MX or TXT records** — those are Google Workspace and are not part
+of any website change.
