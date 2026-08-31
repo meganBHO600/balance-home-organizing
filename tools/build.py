@@ -517,7 +517,11 @@ def build_contact():
     <p class="muted" style="line-height:1.8">Phone Number: <a href="{CONTACT['phone_href']}">760-571-9292</a></p>
   </div>
 
-  <form class="form" data-form="contact" novalidate>
+  <form class="form" data-form="contact" data-endpoint="/api/contact" novalidate>
+    <div class="hp" aria-hidden="true">
+      <label for="website">Leave this field empty</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
     <div>
       <span class="field-label field-label--group">Name</span>
       <div class="field-pair">
@@ -580,7 +584,11 @@ def build_join():
     </ul>
     <p style="margin-bottom:var(--space-6)">Send us a message for more details!</p>
 
-    <form class="form" data-form="join" novalidate>
+    <form class="form" data-form="join" data-endpoint="/api/join" novalidate>
+      <div class="hp" aria-hidden="true">
+        <label for="jwebsite">Leave this field empty</label>
+        <input id="jwebsite" name="website" type="text" tabindex="-1" autocomplete="off" />
+      </div>
       <div>
         <span class="field-label field-label--group">Name</span>
         <div class="field-pair">

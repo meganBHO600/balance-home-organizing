@@ -352,6 +352,14 @@ body.theme-warm .nav { background: var(--color-bg-warm); }
 
 /* --- forms --------------------------------------------------------------- */
 
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form { display: flex; flex-direction: column; gap: var(--space-5); }
 
 .field-label {

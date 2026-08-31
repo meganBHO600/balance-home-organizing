@@ -37,7 +37,11 @@
     <p class="muted" style="line-height:1.8">Phone Number: <a href="tel:7605719292">760-571-9292</a></p>
   </div>
 
-  <form class="form" data-form="contact" novalidate>
+  <form class="form" data-form="contact" data-endpoint="/api/contact" novalidate>
+    <div class="hp" aria-hidden="true">
+      <label for="website">Leave this field empty</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
     <div>
       <span class="field-label field-label--group">Name</span>
       <div class="field-pair">

@@ -40,11 +40,17 @@
     box.style.color = tone === 'error' ? '#8a3d29' : 'var(--color-accent-700)';
   }
 
+  function mailtoUrl(form, kind) {
+    return 'mailto:' + INBOX +
+      '?subject=' + encodeURIComponent(SUBJECTS[kind] || SUBJECTS.contact) +
+      '&body=' + encodeURIComponent(body(form));
+  }
+
   function body(form) {
     var out = [];
     form.querySelectorAll('input, textarea').forEach(function (f) {
       if (f.type === 'radio' && !f.checked) return;
-      if (!f.name || !f.value) return;
+      if (!f.name || !f.value || f.name === 'website') return;
       out.push(f.name.replace(/_/g, ' ') + ': ' + f.value);
     });
     return out.join('\n');
@@ -76,18 +82,21 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         }).then(function (r) {
-          if (!r.ok) throw new Error(r.status);
-          form.reset();
-          status(form, 'Message sent. We usually reply within a business day.');
-        }).catch(function () {
-          status(form, 'That did not send. Email ' + INBOX + ' and we will pick it up there.', 'error');
+          return r.json().catch(function () { return {}; }).then(function (body) {
+            if (!r.ok) throw new Error(body.error || 'Request failed');
+            form.reset();
+            status(form, 'Message sent. We usually reply within a business day.');
+          });
+        }).catch(function (err) {
+          // fall back to the visitor's mail client so a submission is never lost
+          status(form, (err.message || 'That did not send.') +
+                       ' Opening your email app instead \u2014 or write to ' + INBOX + '.', 'error');
+          window.location.href = mailtoUrl(form, kind);
         });
         return;
       }
 
-      window.location.href = 'mailto:' + INBOX +
-        '?subject=' + encodeURIComponent(SUBJECTS[kind] || SUBJECTS.contact) +
-        '&body=' + encodeURIComponent(body(form));
+      window.location.href = mailtoUrl(form, kind);
       status(form, 'Opening your email app with this message ready to send. ' +
                    'If nothing opens, email ' + INBOX + ' directly.');
     });

@@ -1,12 +1,16 @@
 {
-  // Static-site deployment for Cloudflare Workers.
-  // There is no Worker script — the whole site is prebuilt HTML committed to
-  // site/, so Cloudflare just serves those assets. Nothing to build or install.
+  // Static site plus a small Worker that handles the two contact forms.
+  // site/ is prebuilt HTML committed to the repo — nothing to build or install.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "balance-home-organizing",
+  "main": "src/index.js",
   "compatibility_date": "2025-05-01",
+  "workers_dev": true,
+  "preview_urls": true,
+  "observability": { "enabled": true },
   "assets": {
     "directory": "./site",
+    "binding": "ASSETS",
     "not_found_handling": "404-page"
   }
 }
