@@ -490,6 +490,20 @@ def build_consultation():
                 "Book a free 30-minute virtual consultation with Balance Home Organizing.",
                 body, "consultation.html")
 
+def build_404():
+    body = """<div class="wrap consult" style="text-align:center">
+  <h1>We couldn&rsquo;t find that page</h1>
+  <div class="consult__lead">
+    <p>The link may be out of date, or the page may have moved when we rebuilt the site.</p>
+  </div>
+  <p style="display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap;margin-top:var(--space-6)">
+    <a href="/index.html" class="btn btn-primary">Go to the homepage</a>
+    <a href="/blog.html" class="btn btn-ghost">Browse organizing tips</a>
+  </p>
+</div>"""
+    return page("404.html", "Page not found — Balance Home Organizing",
+                "That page could not be found.", body, "")
+
 def build_contact():
     body = f"""<div class="wrap split" style="padding-block:var(--space-8)">
   <div>
@@ -605,7 +619,7 @@ if __name__ == "__main__":
     os.makedirs(SITE, exist_ok=True)
     built = [build_home(), build_services(), build_process(), build_about(),
              build_blog(), build_blog_older(), build_products(),
-             build_contact(), build_join(), build_consultation()]
+             build_contact(), build_join(), build_consultation(), build_404()]
     for b in built:
         size = os.path.getsize(os.path.join(SITE, b))
         print(f"  {b:<22} {size:>7,} bytes")
