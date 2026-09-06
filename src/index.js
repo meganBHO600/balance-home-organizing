@@ -81,9 +81,19 @@ async function send(env, spec, data, request) {
   }
 }
 
+const CANONICAL_HOST = 'balancehomeorganizing.com';
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+
+    // www -> apex, permanently. Keeps one canonical URL for SEO and means old
+    // links and business cards that use www still land in the right place.
+    if (url.hostname === `www.${CANONICAL_HOST}`) {
+      url.hostname = CANONICAL_HOST;
+      return Response.redirect(url.toString(), 301);
+    }
+
     const spec = FORMS[url.pathname];
 
     if (spec) {
