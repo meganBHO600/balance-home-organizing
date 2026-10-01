@@ -8,6 +8,15 @@
   "workers_dev": true,
   "preview_urls": true,
   "observability": { "enabled": true },
+  // Blog posts live here so Megan can publish without a git push or rebuild.
+  // database_id is filled in after creating the database in the dashboard.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "balance-home-organizing",
+      "database_id": "1a24c7dd-3b34-4f13-bc16-113f54f9c78e"
+    }
+  ],
   "assets": {
     "directory": "./site",
     "binding": "ASSETS",

@@ -11,6 +11,8 @@
  * Required secret:  RESEND_API_KEY
  */
 
+import { renderPost } from './blog.js';
+
 const INBOX = 'megan@balancehomeorganizing.com';
 const FROM = 'Balance Home Organizing <onboarding@resend.dev>';
 
@@ -92,6 +94,20 @@ export default {
     if (url.hostname === `www.${CANONICAL_HOST}`) {
       url.hostname = CANONICAL_HOST;
       return Response.redirect(url.toString(), 301);
+    }
+
+    // Posts come from D1 so Megan can publish without a rebuild. Anything not
+    // in the database falls through to the static files, so the site keeps
+    // working before and during the migration.
+    const post = url.pathname.match(/^\/blog\/([a-z0-9][a-z0-9-]*)(?:\.html)?$/i);
+    if (post && env.DB) {
+      try {
+        const rendered = await renderPost(env, post[1], url.origin);
+        if (rendered) return rendered;
+      } catch (err) {
+        console.error('blog render failed', post[1], err.message);
+        // fall through to the static copy rather than showing an error
+      }
     }
 
     const spec = FORMS[url.pathname];

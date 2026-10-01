@@ -623,6 +623,50 @@ def build_join():
                 "Balance Home Organizing is hiring professional organizers in San Diego County.",
                 body, "")
 
+def emit_chrome():
+    """Write src/chrome.json: the page shell the Worker reuses for D1-backed posts.
+
+    Generated from the same nav()/footer() used for the static pages, so the
+    Worker and the static build cannot drift apart. Placeholders are filled in
+    at request time by the Worker.
+    """
+    marker = "@@BODY@@"
+    for name, prefix, warm in (("post", "../", False), ("archive", "../../", True)):
+        doc = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>@@TITLE@@</title>
+<meta name="description" content="@@DESCRIPTION@@" />
+@@HEAD_EXTRA@@
+<link rel="icon" href="{prefix}{IMAGES.get('favicon', 'assets/img/favicon.ico')}" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" />
+<link rel="stylesheet" href="{prefix}assets/css/styles.css" />
+</head>
+<body{' class="theme-warm"' if warm else ''}>
+<a class="skip-link" href="#main">Skip to content</a>
+{nav("blog.html", False, prefix)}
+<main id="main">
+{marker}
+</main>
+{footer(prefix)}
+<script src="{prefix}assets/js/forms.js" defer></script>
+</body>
+</html>
+"""
+        head, tail = doc.split(marker)
+        CHROME[name] = {"head": head, "tail": tail, "prefix": prefix}
+    dest = os.path.join(ROOT, "src", "chrome.json")
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    with open(dest, "w", encoding="utf-8") as f:
+        json.dump(CHROME, f, indent=2, ensure_ascii=False)
+    return dest
+
+CHROME = {}
+
 if __name__ == "__main__":
     os.makedirs(SITE, exist_ok=True)
     built = [build_home(), build_services(), build_process(), build_about(),
@@ -642,4 +686,6 @@ if __name__ == "__main__":
         build_post(p, BLOG[i - 1] if i else None,
                    BLOG[i + 1] if i + 1 < len(BLOG) else None)
     print(f"  blog/*.html            {len(BLOG)} post pages")
+    emit_chrome()
+    print(f"  src/chrome.json        page shell for Worker-rendered posts")
     print(f"\n{len(built) + len(BLOG) + n_services + n_archives} pages built into site/")
