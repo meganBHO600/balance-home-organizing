@@ -12,7 +12,6 @@
  */
 
 import { renderPost } from './blog.js';
-import seedPosts from './seed-posts.json';
 
 const INBOX = 'megan@balancehomeorganizing.com';
 const FROM = 'Balance Home Organizing <onboarding@resend.dev>';
@@ -121,52 +120,6 @@ async function handle(request, env, ctx) {
         // to a visitor — the static copy of every post is still deployed.
         console.error('blog render fell back to static:', post[1], err.message);
       }
-    }
-
-    // One-time migration of the 37 posts imported from Squarespace. Refuses to
-    // run once the table has rows, so it cannot overwrite anything. Removed in
-    // the commit after the migration.
-    if (url.pathname === '/api/admin/seed' && request.method === 'POST' && env.DB) {
-      const existing = await env.DB.prepare('SELECT COUNT(*) AS n FROM posts').first();
-      if (existing && existing.n > 0) {
-        return json({ error: `Already seeded (${existing.n} posts). Refusing to overwrite.` }, 409);
-      }
-      const now = Date.now();
-      const stmts = [];
-      const terms = new Map();
-      for (const p of seedPosts) {
-        for (const t of p.terms) terms.set(`${t.kind}:${t.slug}`, t);
-      }
-      for (const t of terms.values()) {
-        stmts.push(env.DB.prepare(
-          'INSERT OR IGNORE INTO terms (kind, name, slug) VALUES (?, ?, ?)'
-        ).bind(t.kind, t.name, t.slug));
-      }
-      for (const p of seedPosts) {
-        stmts.push(env.DB.prepare(
-          `INSERT OR REPLACE INTO posts
-             (slug, title, excerpt, body_html, thumb, author, status, published_at, created_at, updated_at)
-           VALUES (?, ?, ?, ?, ?, ?, 'published', ?, ?, ?)`
-        ).bind(p.slug, p.title, p.excerpt, p.body_html, p.thumb, p.author, p.published_at, now, now));
-      }
-      await env.DB.batch(stmts);
-
-      const links = [];
-      for (const p of seedPosts) {
-        for (const t of p.terms) {
-          links.push(env.DB.prepare(
-            `INSERT OR IGNORE INTO post_terms (post_id, term_id)
-             SELECT p.id, t.id FROM posts p, terms t
-              WHERE p.slug = ? AND t.kind = ? AND t.slug = ?`
-          ).bind(p.slug, t.kind, t.slug));
-        }
-      }
-      if (links.length) await env.DB.batch(links);
-
-      const counts = await env.DB.prepare(
-        'SELECT (SELECT COUNT(*) FROM posts) AS posts, (SELECT COUNT(*) FROM terms) AS terms, (SELECT COUNT(*) FROM post_terms) AS links'
-      ).first();
-      return json({ ok: true, ...counts });
     }
 
     const spec = FORMS[url.pathname];
