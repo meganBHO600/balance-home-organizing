@@ -12,6 +12,9 @@
  */
 
 import { renderPost } from './blog.js';
+import { adminUser, adminDenied, handleAdminApi } from './admin.js';
+import { adminPage } from './admin-page.js';
+import { markdownToHtml } from './markdown.js';
 
 const INBOX = 'megan@balancehomeorganizing.com';
 const FROM = 'Balance Home Organizing <onboarding@resend.dev>';
@@ -120,6 +123,25 @@ async function handle(request, env, ctx) {
         // to a visitor — the static copy of every post is still deployed.
         console.error('blog render fell back to static:', post[1], err.message);
       }
+    }
+
+    // --- admin -------------------------------------------------------------
+    if (url.pathname === '/admin' || url.pathname === '/admin/') {
+      const user = adminUser(request);
+      if (!user) return adminDenied();
+      return new Response(adminPage(user), {
+        headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' },
+      });
+    }
+
+    if (url.pathname === '/api/admin/preview' && request.method === 'POST') {
+      if (!adminUser(request)) return json({ error: 'Not authorised.' }, 403);
+      const { body_md = '' } = await request.json().catch(() => ({}));
+      return json({ html: markdownToHtml(body_md) });
+    }
+
+    if (url.pathname.startsWith('/api/admin/')) {
+      return handleAdminApi(request, env, url);
     }
 
     const spec = FORMS[url.pathname];
