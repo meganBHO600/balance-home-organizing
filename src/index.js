@@ -87,6 +87,17 @@ const CANONICAL_HOST = 'balancehomeorganizing.com';
 
 export default {
   async fetch(request, env, ctx) {
+    try {
+      return await handle(request, env, ctx);
+    } catch (err) {
+      console.error('unhandled error, serving static:', err && err.message);
+      return env.ASSETS.fetch(request);
+    }
+  },
+};
+
+async function handle(request, env, ctx) {
+  {
     const url = new URL(request.url);
 
     // www -> apex, permanently. Keeps one canonical URL for SEO and means old
@@ -100,13 +111,14 @@ export default {
     // in the database falls through to the static files, so the site keeps
     // working before and during the migration.
     const post = url.pathname.match(/^\/blog\/([a-z0-9][a-z0-9-]*)(?:\.html)?$/i);
-    if (post && env.DB) {
+    if (post && env.DB && request.method === 'GET') {
       try {
         const rendered = await renderPost(env, post[1], url.origin);
         if (rendered) return rendered;
       } catch (err) {
-        console.error('blog render failed', post[1], err.message);
-        // fall through to the static copy rather than showing an error
+        // Database not migrated yet, or a transient failure. Never surface this
+        // to a visitor — the static copy of every post is still deployed.
+        console.error('blog render fell back to static:', post[1], err.message);
       }
     }
 
@@ -142,5 +154,5 @@ export default {
     }
 
     return env.ASSETS.fetch(request);
-  },
-};
+  }
+}
